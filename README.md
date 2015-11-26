@@ -4,14 +4,14 @@ MartinAlexandreLaurie - Mise en page HTML
 ## things to DO
 
 ### 1. Spécificités de la mise en page
-	* Laurie
+	*	Laurie
 
 ### 2. Parser Gutenberg = OK
 
 ### 3. Générateur de CSS:
-	* définir règles
-	* comment print en pdf?
-	* définir règles algorithmiques
+	*   définir règles
+	*   comment print en pdf?
+	*   définir règles algorithmiques
 		* mots récurrents
 		* images extraites
 
