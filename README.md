@@ -20,6 +20,12 @@ MartinAlexandreLaurie - Mise en page HTML
 
 ## Problèmes:
 	* gutenberg non uniforme
-	* => prendre que les fichiers avec pagenum
-	* pb reste : comment virer la syntaxte en trop
-	*	/ essai: avoir page avec `<p> et <h1...>`
+	=> prendre que les fichiers avec pagenum
+	pb reste : comment virer la syntaxte en trop
+		/essai: avoir page avec `<p> et <h1...>`
+		+virer les numéros de paragraphe, de pages...
+		note: conserver les citations (qui seront en italique)
+
+	* limiter nombre de mots par pages
+	* MeP pour titres : saut de ligne + compta pour nb (mots)
+		/pagebreak
