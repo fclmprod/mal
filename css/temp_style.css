@@ -1,0 +1,26 @@
+html{
+	font-family: "Open Sans", sans-serif;
+	padding: 20px;
+}
+
+h1 {
+	font-weight: 800;
+
+	font-size: 38pt;
+}
+
+h2,h3,h4 {
+	font-weight: 600;
+
+	font-size: 26pt;
+}
+
+p {
+	margin:10px 20px 5px 0px;
+
+	font-size: 10pt;
+	line-height: 14pt;
+
+	text-indent: 10pt;
+}
+		
