@@ -1,19 +1,25 @@
 # mal
 MartinAlexandreLaurie - Mise en page HTML
 
+## things to DO
 
-### 7H1NG5 to DO
+### 1. Spécificités de la mise en page
+	* Laurie
 
-1. Spécificités de la mise en page
-	= Laurie
+### 2. Parser Gutenberg = OK
 
-2. Parser Gutenberg = OK
+### 3. Générateur de CSS:
+	* définir règles
+	* comment print en pdf?
+	* définir règles algorithmiques
+		* mots récurrents
+		* images extraites
 
-3. Générateur de CSS:
-	a. définir règles
-	b. comment print en pdf?
-	c. définir règles algorithmiques
-		- mots récurrents
-		- images extraites
+### 4. Imposition PDF
 
-4. Imposition PDF
+
+## Problèmes:
+	* gutenberg non uniforme
+	* => prendre que les fichiers avec pagenum
+	* pb reste : comment virer la syntaxte en trop
+	*	/ essai: avoir page avec `<p> et <h1...>`
