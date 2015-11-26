@@ -1,0 +1,16 @@
+#page {
+	width:210mm;
+}
+
+p {
+	color:blue;
+	margin-right:30%;
+}
+
+.prime {
+	color:#FF0000;
+	margin-right:0px;
+	margin-left:30%;
+	font-weight:bold;
+}
+
