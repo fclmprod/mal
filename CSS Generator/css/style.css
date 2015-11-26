@@ -1,3 +1,5 @@
+@import url("../fonts/fonts.css");
+
 html {
 	font-family: "Anonymous Pro", cursive;
 }
@@ -49,6 +51,8 @@ h4 {
 
 .page {
 	zoom:0.5;
+	-moz-transform:  scale(0.5,0.5);
+	-moz-transform-origin: left center;
 
 	display: inline-block;
 	float: left;
@@ -66,6 +70,8 @@ h4 {
 	border: 1px solid rgba(0,0,0,0.3);
 
 	box-shadow: 2px 2px 0px black,4px 4px 0px white,6px 6px 0px black,8px 8px 0px white,10px 10px 0px black;
+
+	overflow: hidden;
 }
 
 .page em {
@@ -83,6 +89,8 @@ h4 {
 
 	.page {
 		zoom:1;
+		-moz-transform:  scale(1,1);
+
 		margin: 0;
 		height: 284mm;
 		// Find a way to do minus padding to width and height ...
