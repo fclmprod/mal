@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html>
+<head>
+
+<title>MALware - HTML Bookmaker</title>
+<meta charset= "UTF-8" />
+
+<link href="css/init.pers.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+
+<script src="js/jquery-2.1.4.min.js"></script>
+
+</head>
+
+<body>
+  <div id="interface">
+    <form name="contenu">
+        <h4>Source</h4>
+
+        <div>
+        <label for="source"><b>Lien à convertir :</b></label>
+        <br>
+        <input type="text" name="source" size="50" placeholder="http://gutenberg.org/example ..."></input>
+        <p><em>(Pour l'instant, seul le site projectgutenberg.com est convertible.)</em></p>
+        </div>
+
+        <div>
+        <label for="source">Maximum de mots par page :</label>
+        <br>
+        <input type="text" name="mots" size="3" value="400">
+        </div>
+
+        <input type="submit" value="Recuperer le contenu" for="contenu"/>
+    </form>
+
+    <form name="images">
+      <h4>Images</h4>
+      <label for="bitmap">Bitmap </label><input type="checkbox" name="bitmap">
+    </form>
+
+    <form name="pagination">
+        <h4>Pagination</h4>
+        <label for="folios">Folios </label><input type="checkbox" name="folios">
+    </form>
+
+    <form name="imposition">
+        <h4>Imposition</h4>
+        <label for="livret">Livret </label><input type="checkbox" name="livret">
+    </form>
+
+    <form name="style">
+        <h4>Style</h4>
+        <textarea name="cssStyle" id="cssStyle" placeholder="// Code CSS .page, .folio, @page"></textarea>
+    </form>
+  </div>
+
+  <div id="output">
+
+  </div>
+
+<script src="js/main.js"></script>
+
+<script type="text/javascript"></script>
+
+</html>
