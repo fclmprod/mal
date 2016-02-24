@@ -1,8 +1,6 @@
 /*  MALWARE - Main JS script
  *  v0.9 | 20151121 FINAL VERSION
  *
- *  1. Parsing/Slicing content
- *
 */
 
 $(document).ready(function(){
@@ -82,7 +80,7 @@ function paginate(e){
 }
 
 function updateStyle(cssInput) {
-  $("style").eq($("style").length-1).html(" ");
+  $("style").eq($("style").length-1).remove();
   var styleElement = document.createElement("style");
   styleElement.textContent = cssInput;
   document.body.appendChild(styleElement);
@@ -97,8 +95,7 @@ function sourceUrl(name) {
     return source;
   }
   else {
-    // isUrl n'accepte pas les addresses locales.
-    //alert("C'est pas des URLS !");
+   // $("input[name="+name+"]").val()"C'est pas des URLS !");
     return value;
   }
 }
@@ -124,7 +121,7 @@ function processSource(data){
   elements = htmlArray(html,"elements"),
   tags = htmlArray(html,"tags");
 
-  console.log(elements);
+  //console.log(elements);
   splitSource(elements,tags,"HR");
 }
 
@@ -181,105 +178,15 @@ function changeImgSrc(source){
   source.pop();
   source = source.join("/");
 
-  $("img").each(function(i){
-      var newSrc = source+"/"+$("img").eq(i).attr("src");
-      $("img").eq(i).attr("src",newSrc);
-  });
+    $("img").each(function(i){
+        var newSrc = source+"/"+$("img").eq(i).attr("src");
+        console.log($("img").eq(i).attr("src"));
+        $("img").eq(i).attr("src",newSrc);
+        console.log(newSrc);
+    });
+
 }
 
-// returns palette color
-function palette(color) {
-  var c = parseInt(((color.r + color.g + color.b) / 3) > 128 ? 255 : 0);
-  return { r: c, g: c, b: c, a: 255 };
-}
-
-// get difference
-function calculateQuantError(o, n) {
-  var oc = parseInt((o.r + o.g + o.b) / 3),
-      nc = parseInt((n.r + n.g + n.b) / 3);
-  return { r: oc - nc, g: oc - nc, b: oc - nc, a: 255 };
-}
-
-function convertImageToCanvas(image) {
-	var canvas = document.createElement("canvas");
-  var context = canvas.getContext("2d");
-	/*canvas.width = image.width*2;
-	canvas.height = image.height*2;
-	context.drawImage(image, 0, 0, canvas.width, canvas.height );*/
-
-  var newImage = new Image();
-        newImage.onload = function () {
-            canvas.width = newImage.width*1;
-            canvas.height = newImage.height*1;
-            context.drawImage(newImage, 0, 0, canvas.width, canvas.height);
-            //localStorage.setItem( "savedImageData", canvas.toDataURL("image/jpg") );
-						var imageData = context.getImageData(0,0,canvas.width, canvas.height),
-          	data = imageData.data,
-      			len = data.length,
-      			i = 0;
-
-            // loop through all pixels and apply dither
-            for( ; i < len; i+=4) {
-
-            // get RGBA for the current pixel
-            var oldColor = {
-              r: data[i+0],
-              g: data[i+1],
-              b: data[i+2],
-              a: data[i+3]
-            };
-
-            // convert RGBA to palette color
-            var newColor = palette(oldColor);
-
-            // apply the new color
-            data[i+0] = newColor.r;
-            data[i+1] = newColor.g;
-            data[i+2] = newColor.b;
-            data[i+3] = newColor.a;
-
-            // calculate color difference
-            var qe = calculateQuantError(oldColor, newColor);
-
-            // apply differences to surrounding pixels.
-            // the try..catch statements just ignores
-            // edge cases. it's a codepen, not a lib :)
-            try {
-              data[i+0+4] += 7/16 * qe.r;
-              data[i+1+4] += 7/16 * qe.g;
-              data[i+2+4] += 7/16 * qe.b;
-              data[i+3+4] += 7/16 * qe.a;
-            } catch(e) {}
-            try {
-              data[i+0-4+w*4] += 3/16 * qe.r;
-              data[i+1-4+w*4] += 3/16 * qe.g;
-              data[i+2-4+w*4] += 3/16 * qe.b;
-              data[i+3-4+w*4] += 3/16 * qe.a;
-            } catch(e) {}
-            try {
-              data[i+0+w*4] += 5/16 * qe.r;
-              data[i+1+w*4] += 5/16 * qe.g;
-              data[i+2+w*4] += 5/16 * qe.b;
-              data[i+3+w*4] += 5/16 * qe.a;
-            } catch(e) {}
-            try {
-              data[i+0+4+w*4] += 1/16 * qe.r;
-              data[i+1+4+w*4] += 1/16 * qe.g;
-              data[i+2+4+w*4] += 1/16 * qe.b;
-              data[i+3+4+w*4] += 1/16 * qe.a;
-            } catch(e) {}
-          }
-
-          context.putImageData(imageData, 0, 0);
-
-          }
-        newImage.crossOrigin = "Anonymous";
-        newImage.src = image.src;
-
-        canvas.width=canvas.width;
-        canvas.width=canvas.width;
-	return canvas;
-}
 
 /*  UTILS FUNCTIONS
  *  ---------------

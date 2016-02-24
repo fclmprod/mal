@@ -8,8 +8,15 @@
 
 <link href="css/init.pers.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
+<link href="libs/codemirror-5.12/lib/codemirror.css" rel="stylesheet" />
+<link href="libs/codemirror-5.12/theme/material.css" rel="stylesheet" />
+<link href="libs/codemirror-5.12/addon/hint/show-hint.css" rel="stylesheet" />
 
 <script src="js/jquery-2.1.4.min.js"></script>
+<script src="libs/codemirror-5.12/lib/codemirror.js"></script>
+<script src="libs/codemirror-5.12/mode/css/css.js"></script>
+<script src="libs/codemirror-5.12/addon/hint/show-hint.js"></script>
+<script src="libs/codemirror-5.12/addon/hint/css-hint.js"></script>
 
 </head>
 
@@ -22,21 +29,20 @@
         <label for="source"><b>Lien à convertir :</b></label>
         <br>
         <input type="text" name="source" size="50" placeholder="http://gutenberg.org/example ..."></input>
-        <p><em>(Pour l'instant, seul le site projectgutenberg.com est convertible.)</em></p>
         </div>
 
-        <div>
+        <div style="display:none;">
         <label for="source">Maximum de mots par page :</label>
         <br>
-        <input type="text" name="mots" size="3" value="400">
+        <input type="text" name="mots" size="3" value="400" disabled>
         </div>
 
         <input type="submit" value="Recuperer le contenu" for="contenu"/>
     </form>
 
-    <form name="images">
+    <form name="images" class="inactive">
       <h4>Images</h4>
-      <label for="bitmap">Bitmap </label><input type="checkbox" name="bitmap">
+      <label for="bitmap">Bitmap </label><input type="checkbox" name="bitmap" disabled>
     </form>
 
     <form name="pagination">
@@ -44,14 +50,15 @@
         <label for="folios">Folios </label><input type="checkbox" name="folios">
     </form>
 
-    <form name="imposition">
+    <form name="imposition" class="inactive">
         <h4>Imposition</h4>
-        <label for="livret">Livret </label><input type="checkbox" name="livret">
+        <label for="livret">Livret </label><input type="checkbox" name="livret" disabled>
     </form>
 
     <form name="style">
         <h4>Style</h4>
-        <textarea name="cssStyle" id="cssStyle" placeholder="// Code CSS .page, .folio, @page"></textarea>
+        <!-- <textarea name="cssStyle" id="cssStyle" placeholder="// Code CSS .page, .folio, @page"></textarea> -->
+        <textarea name="cssStyle" id="cssStyle"></textarea>
     </form>
   </div>
 
@@ -61,6 +68,15 @@
 
 <script src="js/main.js"></script>
 
-<script type="text/javascript"></script>
+<script type="text/javascript">
+var editor = CodeMirror.fromTextArea(document.getElementById("cssStyle"), {
+        lineNumbers: false,
+        extraKeys: {"Ctrl-Space": "autocomplete"},
+        theme:"material"
+      });
+editor.on("changes", function(){
+    updateStyle(editor.getValue());
+})
+</script>
 
 </html>

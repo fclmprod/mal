@@ -22,7 +22,18 @@
 
 */
 
+.inactive {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
 #cssStyle {
+    font-family: "Andale Mono", monospace;
+    font-size:9pt;
+}
+/*
+#cssStyle {
+    text-align: left;
 	width: 100%;
 	height: 350px;
 	resize: none;
@@ -34,22 +45,29 @@
 	font-size: 8pt;
 	font-family: "Anonymous Pro", cursive;
 }
+*/
 img {
 	float: right;
 }
 
 html {
 	margin-left: 25%;
-	font-family: "Alegreya", cursive;
+	font-family: "Cooper Hewitt", sans-serif;
 	counter-reset: folio;
 }
 
 #interface {
+    box-sizing: border-box;
+    padding: 20px;
 	position: fixed;
 	top: 0; left: 0;
 	width: 25%;
 	text-align: right;
 	overflow-x: visible;
+}
+
+div[class^="CodeMirror-"] {
+    text-align: left;
 }
 
 .page {
@@ -156,10 +174,6 @@ form h4 {
 		display: none;
 	}
 
-	* {
-		float:none;
-	}
-
 	#preview {
 		position: static;
 		left: 0;
@@ -173,8 +187,7 @@ form h4 {
 
 		float: none;
 		clear: both;
-
-
+        
 		/* Find a way to do minus padding to width and height ...*/
 		border: none;
 		box-shadow: none;
