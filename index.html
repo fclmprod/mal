@@ -4,8 +4,10 @@
 <head>
 
 <title>MALware - HTML Bookmaker</title>
-<meta charset= "UTF-8" />
+<meta charset="UTF-8" />
 
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAhoJ+AH5+fgAyMjIAgoKCAP7+/gBPT08AZmZmAOLi4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB3d3Z3d3MAAHd3dnd3cwAAVVVWhVVSAABVVVaFVVEAAFAAVlAAVAAAVVVWVVVUAABQAFZQAFQAAFVVVoVVUgAAUABWgABRAABVVVaFVVIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAgAMAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAwAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
+    
 <link href="css/init.pers.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
 <link href="libs/codemirror-5.12/lib/codemirror.css" rel="stylesheet" />
@@ -54,10 +56,14 @@
         <h4>Imposition</h4>
         <label for="livret">Livret </label><input type="checkbox" name="livret" disabled>
     </form>
+    <form name="imposition" >
+        <h4>Couvertures</h4>
+        <label for="frontCover">1ère : </label><input type="checkbox" name="frontCover">
+        <label for="backCover">4ème : </label><input type="checkbox" name="backCover">
+    </form>
 
     <form name="style">
         <h4>Style</h4>
-        <!-- <textarea name="cssStyle" id="cssStyle" placeholder="// Code CSS .page, .folio, @page"></textarea> -->
         <textarea name="cssStyle" id="cssStyle"></textarea>
     </form>
   </div>
@@ -69,14 +75,15 @@
 <script src="js/main.js"></script>
 
 <script type="text/javascript">
-var editor = CodeMirror.fromTextArea(document.getElementById("cssStyle"), {
+    var editor = CodeMirror.fromTextArea(document.getElementById("cssStyle"), {
         lineNumbers: false,
         extraKeys: {"Ctrl-Space": "autocomplete"},
         theme:"material"
-      });
-editor.on("changes", function(){
-    updateStyle(editor.getValue());
-})
+    });
+
+    editor.on("changes", function(){
+        updateStyle(editor.getValue());
+    })
 </script>
 
 </html>

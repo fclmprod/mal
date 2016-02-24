@@ -2,30 +2,40 @@
 *par Martin, Alexandre & Laurie*
 > Le projet **HTML Bookmaker** permet de réaliser un document ``.pdf`` imprimable selon des parametres definis par l'utilisateur.
 
-### Source
-* Lien a convertir
+Utilisez l'outil en ligne ici : [http://maous.fr/HTMLbookmaker/](http://maous.fr/HTMLbookmaker/)
 
-### Images
+## Fonctionnement
+Le document source est récupéré par un script ``php`` pour être prévusialisé dans l'outil. Les parametres définis par l'utilisateur sont appliqués directement.
 
-### Style
-Afin d'offrir un contrôle maximum sur l'objet final, nous avons décider de laisser l'utilisateur entrer directement du code CSS
+## Utilisation
+> Marche mieux sur Google Chrome
 
-### Pagination
-#### Les compteurs en CSS
-La réponse immediate aurait été celle d'utiliser un propriété native de CSS 2.1 comprise par tous les navigateurs. Cependant lorsque le DOM est modifié les compteurs se réactualisent, rendant l'étape d'imposition impossible.
+* Copier l'url d'une page ``html``
+* Cliquer sur [Récuperer le contenu]
+* Choisir les options
+* Entrer le style CSS
+    * ``.page`` pour cibler les pages
+    * ``.folio`` pour cibler la pagination
+    * ``.cover`` pour cibler les couvertures
+    * ``@page`` pour définir le format de la page final (A3 ou A4, portrait ou landscape)
+* [ctrl]+[p] ou [ctrl]+[s] pour imprimer le document en ``.pdf``
 
-```
-body {
-  counter-reset: section;
-}
-.folio::after {
-  counter-increment: section;
-  content: "Page" counter(section);
-}
-```
-#### Pagination en Jquery
-*Contrairement à la méthode choisie par le site *gutemberg.org*il est important que la pagniation se trouve en dehors
+## Crédits
+* Colorisation de syntaxe avec [http://codemirror.net/](http://codemirror.net/)
+* Typographies :
+    * [Cooper Hewitt](http://www.cooperhewitt.org/open-source-at-cooper-hewitt/cooper-hewitt-the-typeface-by-chester-jenkins/) par Chester Jenkins sous licence [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL-FAQ_web)
+    * [Anonymous Pro](http://www.marksimonson.com/fonts/view/anonymous-pro) par Mark Simonson sous licence [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL-FAQ_web)
+
+---
+
+## Work in progress
+
+### Découpage du contenu
 
 ### Imposition
+* En livret
+* Plusieurs pages par planches
 
-## Interface Utilisateur
+### Images
+* Dithering
+* Filtres CSS

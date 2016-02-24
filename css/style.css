@@ -1,134 +1,69 @@
-/*  MALWARE - Main JS script
- *  v0.9 | 20151121 FINAL VERSION
+/*  MALWARE - Main CSS style
+ *  v0.0.3 | 20160224
  *
  *
- *	DUMP -------------------------¬
-@import url("../fonts/fonts.css");
-.page {
-	position: relative;
-	counter-increment: folio;
-}
+ *
+ */
 
-.folio {
-	text-align: center;
-	font-weight: bolder;
-	font-size: 34pt;
-}
 
-.folio::after {
-	position: absolute;
-	bottom: 0;
-	content: counter(folio);
-
-*/
-
-.inactive {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-#cssStyle {
-    font-family: "Andale Mono", monospace;
-    font-size:9pt;
-}
-/*
-#cssStyle {
-    text-align: left;
-	width: 100%;
-	height: 350px;
-	resize: none;
-	outline: none;
-	border: none;
-	border-top:1px solid black;
-	background-color: #333;
-	color: #fff;
-	font-size: 8pt;
-	font-family: "Anonymous Pro", cursive;
-}
-*/
-img {
-	float: right;
-}
 
 html {
 	margin-left: 25%;
-	font-family: "Cooper Hewitt", sans-serif;
-	counter-reset: folio;
 }
 
+/* User Interface */
+
 #interface {
+    color: black;
     box-sizing: border-box;
     padding: 20px;
 	position: fixed;
 	top: 0; left: 0;
 	width: 25%;
 	text-align: right;
-	overflow-x: visible;
+	overflow-y: visible;
+    font-family: "Cooper Hewitt", sans-serif;
+    color: #000;
 }
 
-div[class^="CodeMirror-"] {
-    text-align: left;
+.inactive {
+    opacity: 0.3;
+    cursor: not-allowed;
 }
-
-.page {
-	margin-left: 7mm;
-}
-
 form {
 	font-size: 10pt;
 	line-height:10pt;
-/*
-	position: fixed;
-	left: 0;
-	width: 50%;
-	display: inline-block;
-	float: left;
-	width: 500px;
-
-	background-color: white;
-
-	text-align: right;
-
-	*/
 }
 
-form div {
-	margin: 0px 0px 5px 0px;
-}
-
-form div em {
-	font-size: 8pt;
-	font-style: italic;
+form div label{
+    font-size: 10pt;
 }
 
 form div select {
 	vertical-align: text-top;
 }
 
-option {
-	width: 100px;
-	height: 10px;
-
-	color: #000;
-	font-family: "Anonymous Pro", cursive;
-	font-weight: bold;
-	text-align: center;
-}
-
 form h4 {
-	margin:10px 0px 5px 0px;
+	margin:10px 0px 0px 0px;
 
 	font-size: 14pt;
 	font-weight: bold;
 	line-height: 16pt;
 }
 
+div[class^="CodeMirror-"]{
+    font-size: 8pt !important;
+    font-family: "Anonymous Pro", monospace !important;
+}
+
+/* Output */
+
 .page {
 	position: relative;
 	box-sizing: border-box;
 	zoom:0.5;
 	-moz-transform:  scale(0.5,0.5);
-	-moz-transform-origin: left center;
+	-moz-transform-origin: top left;
 
 	display: inline-block;
 	float: left;
@@ -137,6 +72,7 @@ form h4 {
 	height: 297mm;
 
 	margin-top: 20px;
+    margin-left: 7mm;
 
 	padding: 17mm 8mm;
 
@@ -149,15 +85,10 @@ form h4 {
 #planches .page {
 	margin: 0;
 	box-shadow: none;
-
 }
 
 .page em {
 	font-style: italic;
-}
-
-.pagenum {
-	display: none;
 }
 
 @page {
