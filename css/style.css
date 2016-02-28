@@ -94,10 +94,12 @@ div[class^="CodeMirror-"]{
 /* Help */
 
 #post-it{
+    position: absolute;
+    z-index: 999;
     cursor:grab;
     margin: 50px;
 	width: 350px;
-	height: 405px;
+	height: 355px;
 	background-color: #fcf98d;
 	color: #333366;
 }
@@ -132,8 +134,15 @@ div[class^="CodeMirror-"]{
 	font-family: "Cooper Hewitt";
 	padding: 3%;
 	font-weight: bolder;
- }
+}
 
+#post-it a {
+    font-family: "Cooper Hewitt";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #333366;
+}
 
 @page {
 	size:A4 portrait;

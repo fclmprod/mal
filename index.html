@@ -36,7 +36,7 @@
         <div>
         <label for="source"><b>Lien à convertir :</b></label>
         <br>
-        <input type="text" name="source" size="50" placeholder="http://gutenberg.org/example ..."></input>
+        <input type="text" name="source" size="35" placeholder="http://gutenberg.org/example ..."></input>
         </div>
 
         <div style="display:none;">
@@ -69,15 +69,19 @@
     </form>
 
     <form name="style">
-        <h4>Style</h4>
+        <h4>Style <a href="#" id="help">?</a></h4>
         <textarea name="cssStyle" id="cssStyle"></textarea>
     </form>
   </div>
 
   <div id="output">
-      <div id="post-it">
+     
+  </div>
+    
+     <div id="post-it">
     		<div id="titre">
-    			<h1>Boite à sélecteurs /CSS</h1>
+    			<h1>Aide</h1>
+                <a href="#">x</a>
     		</div>
             <div id="ligne"><p>-----------------------------------------------------------------</p></div>
     		<div id="selecteur">
@@ -115,7 +119,6 @@
 					size:A4 portrait; <br>
 					}</h4>  <br>  			    			
     	</div>
-  </div>
 
 <script src="js/main.js"></script>
 
@@ -123,6 +126,18 @@
     $(function() {
         $( "#post-it" ).draggable();
     });
+    
+    $("#help").hide();
+    $("#post-it a").click(function(){
+        $("#post-it").fadeOut();
+        $("#help").fadeIn();
+        return false;
+    })
+    $("#help").click(function(){
+        $(this).fadeOut();
+        $("#post-it").fadeIn();
+        return false;
+    })
     
     var editor = CodeMirror.fromTextArea(document.getElementById("cssStyle"), {
         lineNumbers: false,
