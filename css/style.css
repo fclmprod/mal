@@ -91,6 +91,50 @@ div[class^="CodeMirror-"]{
 	font-style: italic;
 }
 
+/* Help */
+
+#post-it{
+    cursor:grab;
+    margin: 50px;
+	width: 350px;
+	height: 405px;
+	background-color: #fcf98d;
+	color: #333366;
+}
+
+#selecteur{
+	width: 120px;
+	height: 350px;
+	float: left;
+	font-family: "Anonymous Pro";
+	font-size: 8pt;
+	padding: 2%;
+	font-weight: bold;
+}
+
+#exemple{
+	width: 340px;
+	height: 300px;
+	font-size: 8pt;
+	padding: 2%;
+}
+
+#post-it p{
+	font-family: "Cooper Hewitt";	
+}
+
+#post-it h4{
+	font-family: "Anonymous Pro";
+	font-weight: bold;
+}
+
+#post-it h1{
+	font-family: "Cooper Hewitt";
+	padding: 3%;
+	font-weight: bolder;
+ }
+
+
 @page {
 	size:A4 portrait;
 }

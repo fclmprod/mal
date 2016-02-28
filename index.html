@@ -3,7 +3,7 @@
 <html>
 <head>
 
-<title>MALware - HTML Bookmaker</title>
+<title>HTML Bookmaker</title>
 <meta charset="UTF-8" />
 
 <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAhoJ+AH5+fgAyMjIAgoKCAP7+/gBPT08AZmZmAOLi4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB3d3Z3d3MAAHd3dnd3cwAAVVVWhVVSAABVVVaFVVEAAFAAVlAAVAAAVVVWVVVUAABQAFZQAFQAAFVVVoVVUgAAUABWgABRAABVVVaFVVIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAgAMAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAwAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
@@ -19,6 +19,7 @@
 <link href="libs/codemirror-5.12/addon/hint/show-hint.css" rel="stylesheet" />
 
 <script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
     
 <script src="libs/codemirror-5.12/lib/codemirror.js"></script>
 <script src="libs/codemirror-5.12/mode/css/css.js"></script>
@@ -74,12 +75,55 @@
   </div>
 
   <div id="output">
-
+      <div id="post-it">
+    		<div id="titre">
+    			<h1>Boite à sélecteurs /CSS</h1>
+    		</div>
+            <div id="ligne"><p>-----------------------------------------------------------------</p></div>
+    		<div id="selecteur">
+    			<h5>.page --------------</h5><br><br><br><br><br>
+    			<h5>.folio -------------</h5><br><br><br><br>
+    			<h5>.cover -------------</h5><br><br><br><br><br><br>
+    			<h5>.page:nth-child(2n)-</h5><br><br><br><br>
+    			<h5>@page --------------</h5>
+    		</div>
+    		<div id="exemple">
+    			<p>sélectionne l'espace de la page</p>
+    				<h4>
+    				.page { <br>
+						width: 20mm; <br>
+						height: 20mm; <br>
+					}</h4> <br>
+    			<p>sélectionne la pagination</p>  
+    			    <h4>
+					.folio { <br>
+						font-size: 8pt; <br>
+					}</h4> <br>			
+    			<p>sélectionne les élèments de couverture, marque les traits de coupe</p>
+    			    <h4>
+					.cover { <br>
+						border:1px solid #000; <br>
+					}</h4>  <br>	
+    			<p>sélectionne une page sur deux (recto/verso)</p>
+    			    <h4>
+					.page:nth-child(2n) { <br>
+					left:10mm; <br>
+					}</h4>  <br>   			
+    			<p>sélectionne le format final du document (A4/A3-paysage/portrait)</p>  
+    			    <h4>
+					@page { <br>
+					size:A4 portrait; <br>
+					}</h4>  <br>  			    			
+    	</div>
   </div>
 
 <script src="js/main.js"></script>
 
 <script type="text/javascript">
+    $(function() {
+        $( "#post-it" ).draggable();
+    });
+    
     var editor = CodeMirror.fromTextArea(document.getElementById("cssStyle"), {
         lineNumbers: false,
         extraKeys: {"Ctrl-Space": "autocomplete"},
